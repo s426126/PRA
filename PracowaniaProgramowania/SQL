@@ -1,0 +1,110 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Timers;
+
+
+namespace ostateczny
+{
+    class Program
+    {
+
+      
+        static void Main(string[] args)
+        {
+        
+            DateTime dt = DateTime.Now;
+            Console.WriteLine(dt);
+            Console.WriteLine("{0:dd\\.hh\\:mm\\:ss} ",dt);
+            if ("ddd"  == "sob." || "ddd"  == "nie.")
+            {
+                
+            }
+            else
+            {
+                
+                Console.WriteLine("Dzisiaj odbywają się zajęcia");
+                
+                
+            }
+            File.Delete(@"C:\Users\Dell\Desktop\ostatecznie\odp.txt");
+            string path = @"C:\Users\Dell\Desktop\ostatecznie\odp.txt";
+            int a = 1;
+            int b = 2;
+            int c = 3;
+            int d = 4;
+            Console.Title = "Projekt SQL";
+
+            string[] t;
+            t = new string[100];
+            int k;
+            String nazwa;
+            for (int i = 1; i <= 1000; i++)
+            {
+
+
+
+
+                Console.WriteLine("Podaj Numer zadania,jeśli chcesz zakończyć program , podaj litere ");
+                try
+                {
+                    k = Convert.ToInt32(Console.ReadLine());
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Nie podales liczby!");
+                    break;
+
+                }
+
+
+                Console.WriteLine("Podaj zapytanie SQL");
+                nazwa = Console.ReadLine();//Pobiera tekst wpisany przez użytkownika
+                a = nazwa.IndexOf("SELECT");
+                b = nazwa.IndexOf("FROM");
+                c = nazwa.IndexOf("WHERE");
+                d = nazwa.IndexOf("ORDER BY");
+
+
+
+                if (a == 0 && a < b) {
+                    if (b < c)
+                    {
+                        if (c < d)
+                        {
+                            Console.WriteLine("Poprawnie");
+                                t[k] = nazwa;
+                        }
+                    }
+
+
+                }
+                else
+                {
+                    Console.WriteLine("Niepoprawne zapytanie SQL");
+                    
+
+                }
+
+
+            }
+              for(int j=1;j<=10; j++)
+            {
+
+                File.AppendAllText(path, t[j] + Environment.NewLine);
+                
+            }
+                    Console.Read();
+
+        
+        }
+  
+
+
+
+    }
+}
